@@ -7,11 +7,12 @@ var getNearShows = function(lattitude, longitude, date){
     var latlong = "&latlong=" + lattitude + "," +  longitude;
     var starTime = "&startDateTime=" + date;
     var size = "&size=100";
+    var endTime = "&endDateTime=" + incrementDay(date);
 
     $.ajax({
         headers: { "Accept": "application/json"},
         type: 'GET',
-        url : baseUrl + apiKey + latlong + starTime,
+        url : baseUrl + apiKey + latlong + starTime + endTime,
         crossDomain: true,
         beforeSend: function(xhr){
             xhr.withCredentials = true;
