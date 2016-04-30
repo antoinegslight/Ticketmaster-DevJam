@@ -1,3 +1,16 @@
 function roadTripItinerary () {
-    this.shows = [{lat: -34.397, lng: 150.644}];
+
+    this.events = [];
+
+    this.setEventList = function(showListJson){
+        for(ctr = 0; ctr < showListJson.length; ctr++){
+            var event = new Event(showListJson[ctr]);
+            this.events.push(event);
+        }
+    }
+
+    this.addAllEventToMap = function(){
+        for(ctr = 0; ctr < this.events.length; ctr++)
+            addEventToMap(this.events[ctr]);
+    }
 }
