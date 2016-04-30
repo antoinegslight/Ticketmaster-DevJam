@@ -6,16 +6,29 @@
     <link rel="stylesheet" href="style/maintstyle.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
     <title>Killer Roadtrip</title>
+    <link rel="stylesheet" href="style/maintstyle.css">
 </head>
 <body>
+
+    <script src="Components/roadTrip.js"></script>
+    <script src="Components/map.js"></script>
+    <script src="Components/roadTripItinerary.js"></script>
+    <script src="Components/event.js"></script>
+
     <div class="container">
         <h1>Killer Roadtrip</h1>
         <div id="homepage" class="component">
             <button id="mainButton" class="btn">Make me travel</button>
         </div>
-        <div id="map" class="component">
+        <div id="mapPanel" class="component">
             <div>
-                map ...
+                <div id="map"></div>
+                <script type="text/javascript">
+                    var startDate = "2016-04-30T00:00:00Z";
+                    initMap()
+                </script>
+                <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCDd5ratjpmO9MqQqp2MvPGt9B5Y-PJ7Ms&callback=initMap"></script>
+
             </div>
             <div id="events">
                 <h2>Events:</h2>
@@ -27,5 +40,8 @@
         </div>
     </div>
     <script src="Components/homepage.js"></script>
+
+
+
 </body>
 </html>

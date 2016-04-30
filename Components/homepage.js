@@ -1,5 +1,5 @@
 var homepage = $('#homepage');
-var map = $('#map');
+var mapPanel = $('#mapPanel');
 var restart = $('#restart');
 var mainButton = $('#mainButton');
 
@@ -15,29 +15,17 @@ $(document).ready(function(){
         url:"http://ticketmaster.com/event/03004F15EE678ED4",
         venue:"Palace Theatre New York"}];
 
-    map.hide();
+    mapPanel.hide();
 
     mainButton.click(function(){
-        map.show();
+        mapPanel.show();
         homepage.hide();
-        showEvents();
     });
 
     restart.click(function(){
-        map.hide();
+        mapPanel.hide();
         $('#events').empty();
         homepage.show();
     });
-
-    var showEvents = function(){
-        roadtrip.forEach(function(event){
-            $("#events").append("<div class='event'>" +
-                "<h3>" + event.name + "</h3>" +
-                "<div>Date: " + event.date + " " + event.time + "</div>" +
-                "<div>Location: " + event.venue + ", " + event.city + "</div>" +
-                "<a href='" +event.url +"'><button type='button'>Buy Tickets</button></a>" +
-                "</div>");
-        });
-    }
 });
 
