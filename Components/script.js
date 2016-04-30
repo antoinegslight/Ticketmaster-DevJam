@@ -30,6 +30,31 @@ $(document).ready(function () {
       });
     }
 
+    var incrementDay = function(date){
+        var year = parseInt(date.substring(0,4));
+        var month = parseInt(date.substring(5,7));
+        var day = parseInt(date.substring(8,10));
+        var time = date.substring(10);
+
+        var currentDay = new Date(year, month-1, day);
+        currentDay.setDate(currentDay.getDate() + 1);
+
+        day = currentDay.getDate();
+        month = currentDay.getMonth() + 1;
+        year = currentDay.getFullYear();
+
+        var incrementedDate = year + "-";
+        if(month<10){
+            incrementedDate += "0"
+        }
+        incrementedDate += month + "-";
+        if(day<10){
+            incrementedDate += "0";
+        }
+        incrementedDate += day + "" + time;
+        return incrementedDate;
+    };
+
     var planRoadTrip = function(duration, latitude, longitude){
 
       getEvents(duration, 0, latitude, longitude);
