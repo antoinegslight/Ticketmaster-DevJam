@@ -105,7 +105,12 @@ $(document).ready(function () {
      }
     };
 
+    mainButton.click(function(){
+        mapPanel.show();
+        homepage.hide();
+        planRoadTrip(startDate, 3, 40.679016, -73.950499);
+    });
+
     var startDate = "2016-04-30T00:00:00Z";
-    planRoadTrip(startDate, 3, 40.679016, -73.950499);
     console.log(roadTrip);
 });

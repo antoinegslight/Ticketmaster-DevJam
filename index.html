@@ -21,18 +21,15 @@
             <button id="mainButton" class="btn">Make me travel</button>
         </div>
         <div id="mapPanel" class="component">
-            <div>
-                <div id="map"></div>
-                <script type="text/javascript">
-                    var startDate = "2016-04-30T00:00:00Z";
-                    initMap()
-                </script>
-                <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCDd5ratjpmO9MqQqp2MvPGt9B5Y-PJ7Ms&callback=initMap"></script>
+            <div id="map"></div>
+            <script type="text/javascript">
+                var startDate = "2016-04-30T00:00:00Z";
+                initMap()
+            </script>
+            <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCDd5ratjpmO9MqQqp2MvPGt9B5Y-PJ7Ms&callback=initMap"></script>
 
-            </div>
-            <div id="events">
-                <h2>Events:</h2>
-            </div>
+            <h2>Events:</h2>
+            <div id="events"></div>
             <div>
                 <button id="restart" class="btn">Restart roadtrip</button>
             </div>
