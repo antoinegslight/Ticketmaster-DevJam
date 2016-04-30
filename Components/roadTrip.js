@@ -19,11 +19,16 @@ $(document).ready(function () {
           success: function(res) {
               if(typeof(res._embedded.events) != "undefined"){
                 setNextEvent(res._embedded.events);
-                if (iteration < duration){
-                  iteration++;
-                  getEvents(incrementDay(date), duration, iteration,
-                            roadTrip[roadTrip.length-1].latitude,
-                            roadTrip[roadTrip.length-1].longitude);
+                if (iteration < duration) {
+                    iteration++;
+                    getEvents(incrementDay(date), duration, iteration,
+                        roadTrip[roadTrip.length - 1].latitude,
+                        roadTrip[roadTrip.length - 1].longitude);
+                }
+                else{
+                    var myItinerary = new roadTripItinerary();
+                    myItinerary.setEventList(roadTrip);
+                    myItinerary.addAllEventToMap();
                 }
               } else {
                 console.log("No roadtrip possible for this date and/or this city")
@@ -88,7 +93,6 @@ $(document).ready(function () {
           latitude: unformatedEvent._embedded.venues[0].location.latitude,
           url: unformatedEvent.url
         };
-        console.log(event);
         roadTrip.push(event);
      } else {
        console.log("Event is undefined");
